@@ -1,6 +1,11 @@
 const kanyeObject = () => {
     fetch('https://api.kanye.rest')
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => displayQuat(data))
 }
-kanyeObject()
+
+const displayQuat = (quote) => {
+    const quoteElement = document.getElementById('quoat');
+    quoteElement.innerText = quote.quote;
+
+}
