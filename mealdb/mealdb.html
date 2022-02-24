@@ -12,26 +12,21 @@
 </head>
 
 <body class="bg-info">
-    <h1 class="text-center text-white">Testy Delux</h1>
-
-    <div class="input-group mb-3 w-50 mx-auto">
-        <input id="search-input" type="text" class="form-control" placeholder="Search Your Favorit Food"
+    <h1 class="text-center text-warning mt-3">Testy Delux</h1>
+    <h3 class="text-center text-white mt-3">Md Mehedi Hasan</h3>
+    <div class="input-group mb-3 w-50 mx-auto align-middle">
+        <input id="search-input" type="text" class="form-control" placeholder="Please Type Your Fevourite Foods"
             aria-label="Recipient's username" aria-describedby="button-addon2">
         <button onclick="loadFood()" class="btn btn-outline-secondary text-white bg-primary" type="button"
             id="search-btn">Search</button>
     </div>
 
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div id="search-result" class="col">
-            <!-- <div class="card">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.</p>
-                </div>
-            </div> -->
-        </div>
+    <div class="card" id="display-maels">
+
+    </div>
+
+    <div id="search-result" class="col row row-cols-1 row-cols-md-3 g-4 w-100">
+
     </div>
 
     <script src="./mealdb.js"></script>
