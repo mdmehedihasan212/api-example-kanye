@@ -1,0 +1,10 @@
+.country{
+    border: 1px solid goldenrod;
+    background-color: blue;
+    text-align: center;
+    justify-content: center;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 20px;
+    color: whitesmoke;
+}
