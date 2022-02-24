@@ -7,15 +7,21 @@ countriesInfo()
 const displayCountries = (country) => {
     const countryDiv = document.getElementById('countrie');
     country.forEach(countries => {
-        // console.log(countries);
+        console.log(countries);
         const div = document.createElement('div')
+        div.innerHTML = `
+            <h1>Country: ${countries.name}</h1>
+        <h3><img src="${countries.flag}" height="200" width="400"></img> </h3>
+        <h3>Capital: ${countries.capital}</h3>
+        <h4>Population: ${countries.population}</h4>
+        <p>Time Zone: ${countries.timezones}</p>`;
         div.classList.add('country')
-        const h2 = document.createElement('h2');
-        h2.innerText = countries.name;
-        div.appendChild(h2)
-        const h4 = document.createElement('h4');
-        h4.innerText = countries.capital;
-        div.appendChild(h4)
+        // const h2 = document.createElement('h2');
+        // h2.innerText = countries.name;
+        // div.appendChild(h2)
+        // const h4 = document.createElement('h4');
+        // h4.innerText = countries.capital;
+        // div.appendChild(h4)
         countryDiv.appendChild(div)
 
     })
