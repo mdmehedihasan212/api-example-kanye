@@ -10,11 +10,12 @@ const displayCountries = (country) => {
         console.log(countries);
         const div = document.createElement('div')
         div.innerHTML = `
-            <h1>Country: ${countries.name}</h1>
-        <h3><img src="${countries.flag}" height="200" width="400"></img> </h3>
+            <h2>Country: ${countries.name}</h2>
+        <h3><img src="${countries.flag}" height="150" width="250"></img> </h3>
         <h3>Capital: ${countries.capital}</h3>
         <h4>Population: ${countries.population}</h4>
-        <p>Time Zone: ${countries.timezones}</p>`;
+        <button onclick="loadCountryDetails('${countries.name}')">Details</button>
+        `;
         div.classList.add('country')
         // const h2 = document.createElement('h2');
         // h2.innerText = countries.name;
@@ -25,4 +26,21 @@ const displayCountries = (country) => {
         countryDiv.appendChild(div)
 
     })
+
+}
+const loadCountryDetails = name => {
+    const url = `https://restcountries.com/v2/name/${name}`;
+    fetch(url)
+        .then(res => res.json())
+        .then(data => displayElement(data[0]))
+}
+const displayElement = countri => {
+    const countriDetails = document.getElementById('countri');
+    countriDetails.innerHTML = `
+    <h2>Countries Details</h2>
+    <h4>Native Name: ${countri.nativeName}</h4>
+    <h4>Region Name: ${countri.region}</h4>
+    <h4>Sub-Region:${countri.subregion}</h4>
+    <h4>Time-Zone:${countri.timezones}</h4> 
+    `;
 }
