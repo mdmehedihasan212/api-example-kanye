@@ -18,8 +18,6 @@ const displayResult = result => {
                 <img src="${values.strMealThumb}" height="250" width="200" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">${values.strMeal}</h5>
-                    <p class="card-text">${values.strMeal}</p>
-                    <p class="card-text">${values.strInstructions.slice(0, 200)}</p>
                 </div>
             </div>
         `;
@@ -28,28 +26,23 @@ const displayResult = result => {
 }
 const loadDetails = foodId => {
     const url = `
-    https://www.themealdb.com/api/json/v1/1/lookup.php?i=52772
+    https://www.themealdb.com/api/json/v1/1/lookup.php?i=${foodId}
     `;
     fetch(url)
         .then(res => res.json())
         .then(data => displayMealDetails(data.meals[0]))
 }
 const displayMealDetails = meal => {
+    console.log(meal);
     const displayMealResult = document.getElementById('display-maels');
     const div = document.createElement('div');
     div.classList.add('card')
     div.innerHTML = `
-    <div class="col-md-4">
-    <img src="" class="img-fluid rounded-start" alt="...">
-</div>
-<div class="col-md-8">
+    <img src="${meal.strMealThumb}" class="card-img-top" alt="...">
     <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-            additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    <p class="card-text">${meal.strInstructions.slice(0, 300)}</p>
+            <a href="${meal.strYoutube}" class="btn btn-primary">See Cooking</a>
     </div>
-</div>
     `;
 
     displayMealResult.appendChild(div)
